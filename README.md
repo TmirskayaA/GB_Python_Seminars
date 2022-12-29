@@ -1,5 +1,3 @@
-# GB_Python_Seminars
-
 # Seminar 1
 
 Tasks:
