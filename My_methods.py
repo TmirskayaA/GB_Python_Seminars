@@ -1,3 +1,4 @@
+#Определяем тип данных по его названию.
 def DefiningDataType(type):
     if type == 'числовой': return int
     elif type == 'текстовый': return str
@@ -6,6 +7,7 @@ def DefiningDataType(type):
     elif type == 'логический': return bool
     else: return 'error'
 
+#Поочерёдно заполняем массив.
 def FillArray(quantity, type):
     array = []
     for i in range(0, quantity):
@@ -13,10 +15,12 @@ def FillArray(quantity, type):
         array.append(element)
     return array
 
+#Проверяет содержит ли массив числа.
 def HaveDigit(array):
     for i in range(0, len(array)):
         if array[i].isdigit(): return True
 
+#Находим индекс первого повторения объекта в массиве.
 def FirstRepeatIndex(array, element):
     replay = 0
     index = -1
@@ -26,3 +30,41 @@ def FirstRepeatIndex(array, element):
             if replay == 2:
                 index = i
     return index
+
+#Собираем из строки числовой массив.
+def CollectINTArray(string):
+    array = [int(string[i]) for i in range(0, len(string)) if string[i].isdigit()]
+    return array
+
+#Метод поиска недостающего числа из Seminar_5,T1.
+def WhichNumberLost(array):
+    for i in range(len(array)):
+        if array[i+1] - array[i] > 1:
+            return array[i] + 1
+
+#Перебираем массив и складываем из его значений новый с числами по возрастанию.
+def AscendingArray(array):
+    endarray = []
+    max = array[0]
+    endarray.append(array[0])
+    for i in range(1, len(array)):
+        if array[i]>max:
+            endarray.append(array[i])
+            max = array[i]
+    return endarray
+
+#Переводим массив в строку.
+def FromArrayToString(array):
+    string = array[0]
+    for i in range(1, len(array)):
+        string = string + " " + array[i]
+    return string
+
+#Удаляем из текста слова содержащие нежелательный объект.
+def DeleteObjectInString(string, object):
+    array = string.split()
+    endarray = []
+    endarray = [array[i] for i in range(0, len(array)) if object not in array[i]]
+    
+    string = FromArrayToString(endarray)
+    return string
