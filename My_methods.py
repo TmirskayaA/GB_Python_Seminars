@@ -68,3 +68,20 @@ def DeleteObjectInString(string, object):
     
     string = FromArrayToString(endarray)
     return string
+
+#Составляем массив из повторяющихся значений в двух других массивах.
+def SearchForDoppelgangers(firstArray, secondArray):
+    if len(firstArray) > len(secondArray):
+        big = firstArray
+        smole = secondArray
+    else: 
+        big = secondArray
+        smole = firstArray
+    
+    finalArray = []
+
+    for i in range(0, len(big)):
+        if big[i] in smole: 
+            if big[i] not in finalArray: finalArray.append(big[i])
+    
+    return finalArray
